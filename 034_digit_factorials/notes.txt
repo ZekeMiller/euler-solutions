@@ -1,0 +1,26 @@
+( 10 ^ n ) - ( 10 ^ (n-1) ) permutations for each n amount of digits
+
+1 digit
+0-9
+
+2 digits
+10-99
+
+therefore if I go based entirely on permutations I'll just end up with the set of integers, so I need to do either combinations then some checking, or should just skip permutations
+
+
+
+Approaches:
+    1) Naive and easy: check all integers up to some upper bound I calculate ( e.g. 9999999 ) and evaluate the sum of the digit factorials for each one.
+    2) More difficult but probably better: check all combinations of digits up to some upper bound ( e.g 7 digits ), if the sum is the same length as the amount of digits in the combination, check if the same digits are in each, if so, add it.
+
+
+9999999 is probably the safest upper bound here, since 7*9! = 2540160 < 9999999
+I may be able to take it down further but who knows
+
+Upon finding the solution, I realized I can certainly decrease my upper bound, and did some more math
+I determined that not only is the upper bound much lower than 10^8, but the combinations method should almost certainly outperform the permutations approach significantly
+
+Combination approach is effectively instantaneous.  I don't know how to prove it mathematically, but I can changed the upper bound based on the result that I got and everything is fine
+
+I also lowered the upper bound on the naive method, which significantly sped it up, but the combinations approach still seems slightly faster, and feels more algorithmically sound.  I don't think it's worth timing them, just writing observations.
