@@ -1,0 +1,28 @@
+n must be greater than 1, so the minimum n value is 2.  Let i be the integer that is multiplied and concatenated (192 in the example given).
+
+
+We know the maximum is over 918273645, so since the first concatenated part must start with 9 and be the result of i * 1, i must start with a 9.  This means that i >= 90.
+
+We also know i cannot be a multiple of 5, since i must be multiplied ( at minimum ) by 1 and 2, which will always result in at least one 0, which is invalid.  From this we know that i >= 91 and i % 5 != 0.
+
+We also know that the length of i must be < 5, since 5 + 5 > 9.  We can also make a few assumptions based on the length of i ( we already know i must be length 2, 3, or 4 ).
+    If i is length 2, the concatenation must be of 2+2+2+3, so len(i) == 2 -> n == 4
+        This means i*1, i*2, and i*3 must all have length 2 (i <= 33 ), and i*4 must have length 3 ( i >= 25 )
+            Based on this constraint len(i) == 2 -> ( 25 <= i <= 33 ) and n == 4
+            However, since we know i must start with a 9, len(i) must not equal 2
+
+    If i is length 3, the concatenation must be of 3+3+3, so len(i) == 2 -> n == 4
+        This means i*1, i*2, and i*3 must all have length 3, so len(i) == 3 -> ( 100 <= i <= 333 )
+        However, since we know i must start with a 9, len(i) must not equal 3
+
+    If i is length 4, the concatenation must be 4 + 5, so len(i) == 4 => n = 2
+        This means len(i*1) == 4 and len(i*2) == 5, so 5000 <= i <= 9999
+        However, the restriction of i starting with 9 reduces this to i >= 9001 and i % 5 != 0
+
+    From this, we can restrict the possible values of i to about 500 possibilities, with the following restrictions:
+        1) i >= 9001
+        2) i <= 9999
+        3) i % 5 != 0
+        4) n = 2
+
+    Mathematically reducing it any further starts having diminishing returns when I can just write a quick script to find the correct value.
