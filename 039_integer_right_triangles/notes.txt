@@ -1,0 +1,54 @@
+extremizing length of c, given perimeter ( the two extremes are a line and a 45-45-90 ( a==0 or a==b ) )
+        Note: if a == b, c == sqrt( 2 a ** 2 ) == a sqrt(2), which isn't an int
+
+    if a == 1:  (maximize)
+        b == c == 0.5 * p = p/2
+    if a == b:  (minimize)
+        c = sqrt(2) * a
+        a = c/sqrt(2)
+        p = a + b + c = c + 2*(c/sqrt(2)) = c + sqrt(2)*c = c(1 + sqrt(2)) = p
+        c = p / ( 1 + sqrt(2) ) = p/2.414
+
+    min = p/2.414
+    max = p/2
+
+
+extremizing a ( assuming a <= b )
+    a == b (maximize)
+        a = c / sqrt(2)
+    a == 1 (minimize)
+
+
+p = a + b + c
+
+a and b are independend
+
+both even:
+    a**2 + b**2 = c**2
+
+    a**2 is even and b**2 is even, therefore c**2 is even
+    since c**2 is even and the sqrt of an even number is even ( assuming integer ) c is even.
+    p = even + even + even
+    p = even
+    result: p even, a even, b even, c even
+
+both odd:
+    a**2 + b**2 = c**2
+    a**2 is odd, b**2 is odd, so c**2 is even ( odd + odd = even )
+    c**2 is even means c is even
+    p = odd + odd + even
+    p = even
+    result: p even, a odd, b odd, c even
+
+one odd one even:   (assume a is odd for this, since they are commutable)
+    a**2 + b**2 = c**2
+    a**2 is odd, b**2 is even, so c**2 is odd, so c is odd
+    p = odd + even + odd
+    p = even
+    result: p even, a odd, b even, c odd
+
+
+P is even in every valid instance, and p >= 12 since 3,4,5 is the smallest integer py triple.
+So we only need to check from 12 to 1000, evens
+
+

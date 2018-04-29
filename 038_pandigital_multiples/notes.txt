@@ -26,3 +26,75 @@ We also know that the length of i must be < 5, since 5 + 5 > 9.  We can also mak
         4) n = 2
 
     Mathematically reducing it any further starts having diminishing returns when I can just write a quick script to find the correct value.
+
+
+
+I had the idea to try to fully prove that 9327,2 = 932718654 is maximal mathematically, given only the fact that 9,4 = 918273645 is not maximal.
+
+Given everything from above, we know that the first digit is a 9, and there are 3 more digits, and that n=2.
+
+We can infer that the second digit is less than 5, since if it is greater than 5, a 1 will carry over from multiplying by 2, and the i*2 term will begin with 19, meaning 9 will appear twice, making the result non-pandigital.
+
+Currently we have: 9[2,3,4][][]18[][][2,4,6]
+
+the possibilities for the first term are:
+    9
+    2,3,4
+    2,3,4,5,6,7
+    2,3,4,5,6,7
+
+Since the 9 multiplies to the 18, the last three digits in each of i and i*2, (e and e2) must satisfy 2 * e = e2
+4 cannot be in i, as it will force a 8 or 9
+5 cannot be in i, as it will force a 0 or 1
+
+Thus,
+
+    9
+    [2,3]                   ( >= 5 forces a 9 )
+    [2,3,6,7]
+    [2,3,6,7]
+
+    1
+    8
+    [4,5,6,7]
+    [2,3,4,5,6,7]   ( 2 or 3 from 6, 6 or 7 from 3, 4 or 5 from 2 or 7 )
+    [ (1)2{6}, 4{2}, (1)4{7}, 6{3} ]
+
+
+3 in first position ( if successful it must be correct, as 3 > 2 )
+
+    9
+    3
+    [2,7]       6 cannot yield 5
+    [2,6,7]
+    1
+    8
+    [6,7]
+    5           only place a 5 is valid
+    [ 2{6}, 4{7} ]
+
+
+    9
+    3
+    2           7 here forces the carry from the 5 to make another 7
+    7
+    1
+    8
+    6
+    5
+    4
+
+The rest follows from simple elimination and logic
+
+
+
+
+
+
+
+
+
+
+
+
+
