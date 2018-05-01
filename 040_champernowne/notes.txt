@@ -1,0 +1,11 @@
+I'm gonna brute force it quick then try to do it with math.  The brute force was really fast but I still enjoy math so let's do this.
+
+
+There has to be a way to calculate at a given index, similar to the lexicographic ordering problem.
+It should be identical to the lexicographic ordering, except including 0, and dropping leading 0's.
+
+The first 9 digits are the single digit numbers ( in lexicographic order )
+The next 2 * ( 99 - 10 ) digits are the individual parts of all of the two digit numbers ( lexico ordered )
+The next 3 * ( 999 - 100 ) digits are the individual parts of all the three digit numbers
+
+The start of the section with the length i numbers
