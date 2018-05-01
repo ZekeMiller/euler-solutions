@@ -1,0 +1,14 @@
+divisibility by 3 knocks out lots of contenders
+    1 + 2 = 3
+    1 + 2 + 3 = 6
+    1 + 2 + 3 + 4 + 5 = 15
+    1 + 2 + 3 + 4 + 5 + 6 = 21
+    1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45
+
+n belongs to [1,4,7,8]
+
+the example of 2143 removes 1
+
+n is in [4,7,8]
+
+that's enough to make this millisecond time scale speed
