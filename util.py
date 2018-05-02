@@ -46,5 +46,5 @@ def genPrimes( max ):
         if relPrime( primes, i ):
             primes += [ i ]
             count += i
-    print( count )
+    # print( count )
     return primes
