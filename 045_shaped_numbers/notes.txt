@@ -1,0 +1,19 @@
+T(n) = n(n+1)/2
+T(n) = k
+8k + 1 = 4n^2 + 4n + 1
+8k + 1 = (2n + 1 )^2
+so k is triangular iff 8k+1 is an odd perfect square
+additionally, k is the (sqrt( 8k + 1 ) - 1) / 2-th triangular number
+
+
+We can also prove that all hexagonal numbers are triangular.
+H(n) = n(2n-1) (by definition)
+= 2n(2n-1)/2
+let k = 2n-1
+= k+1(k)/2
+= k(k+1)/2  (the closed form of triangular numbers)
+thus H(n) = T(2n-1)
+
+So we only need to check for hexagonal and pentagonal, meaning the first proof is worthless, yay
+
+actually we can probably find a way to use it, since that means all the hexagonal numbers also satisfy the 8k+1 is an odd square property.  We also know that the hexagonal numbers are the odd triangular numbers, so we know a number k is hexagonal iff ((sqrt(8k+1)-1)/2) % 2 == 0
