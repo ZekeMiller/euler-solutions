@@ -9,6 +9,34 @@ from util import *
 """
 
 
+def primeFactors( val ):
+    if val <= 3:
+        return [val]
+    facts = []
+    for prime in range( 2, int( math.sqrt( val ) ) + 1 ):
+        while val % prime == 0:
+            val //= prime
+            facts += [prime]
+    if val != 1:
+        facts += [val]
+    return facts
+
+
+def isPrime( num ):
+    if num <= 1:
+        return False
+    elif num <= 3:
+        return True
+    elif num % 2 == 0 or num % 3 == 0:
+        return False
+    i = 5
+    while i ** 2 <= num:
+        if num % i == 0 or num % ( i + 2 ) == 0:
+            return False
+        i += 6
+    return True
+
+
 def divisors( val ):
     
     if val < 1:
