@@ -1,0 +1,17 @@
+since x and 6x must have the same number of digits, 10^n < x < (10^n)/6 (e.g. if n = 3, 1000 < x < 1666)
+I also know n can't be 1 or 2, probably can't be 3 either but it's so few checks that I don't feel like proving it.
+
+ones place in x,2x,3x,..,6x
+
+1   2   3   4   5   6
+2   4   6   8   0   2
+3   6   9   2   5   3
+4   8   2   6   0   4
+5   0   5   0   5   0
+6   2   8   4   0   6
+7   4   1   8   5   2
+8   6   4   2   0   8
+9   8   7   6   5   4
+0   0   0   0   0   0
+
+I think it's unlikely it will be 0 or 7, as 0 contains only 0 and 7 contains 6 digits, but the given example matches the 7 set exactly, so it's possible.  I can't gain anything extremely concrete and helpful from the sets, or if I can, I'm too tired to be able to right now, so we're gonna go with brute force for the time being.

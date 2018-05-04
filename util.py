@@ -9,6 +9,10 @@ from util import *
 """
 
 
+def isPerm( num1, num2 ):
+    return sorted( str( num1 ) ) == sorted( str( num2 ) )
+
+
 def primeFactors( val ):
     if val <= 3:
         return [val]
