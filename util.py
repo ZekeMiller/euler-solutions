@@ -9,6 +9,10 @@ from util import *
 """
 
 
+def isPalindrome( num ):
+    return str(num) == str(num)[::-1]
+
+
 def isPerm( num1, num2 ):
     return sorted( str( num1 ) ) == sorted( str( num2 ) )
 
