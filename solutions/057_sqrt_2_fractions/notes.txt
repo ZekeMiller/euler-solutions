@@ -1,0 +1,11 @@
+the equation is of the form 1 + 1 / ( 2 + 1 / ( 2 + ... ) )
+
+Let Ti (term i) = Ni/Di = the i-th iteration of the equation above
+
+let ti be the portion of the equation that would allow the entire equation to be reprsented as 1 + 1/ti (for the i-th iteration)
+
+ti = ni/di
+ni = 2*n(i-1)+d(i-1)
+di = n(i-1)
+
+we can use this to quickly and easily generate all of the fractions from the previous ones
