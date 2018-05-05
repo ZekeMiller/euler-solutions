@@ -6,6 +6,11 @@ import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from util import *
+
+import os
+script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+rel_path = "file.txt"
+abs_file_path = os.path.join(script_dir, rel_path)
 """
 
 
