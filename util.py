@@ -1,4 +1,6 @@
 import math
+import os
+import sys
 
 
 """
@@ -89,3 +91,52 @@ def genPrimes( max ):
             count += i
     # print( count )
     return primes
+
+
+def sievePrimes( upper ):
+    bools = [ False for _ in range( upper ) ]
+    bools[0] = True
+    bools[1] = True
+    for i in range( 4, upper, 2 ):
+        bools[ i ] = True
+
+    for i in range( 3, upper, 2 ):
+        if not bools[ i ]:
+            for j in range( i * i, upper, 2 * i ):
+                bools[ j ] = True
+
+    primes = []
+    for i in range( upper ):
+        if not bools[ i ]:
+            primes += [i]
+
+    return primes
+
+
+def savePrimes( filename, amount ):
+    curr_dir = os.path.dirname(__file__)
+    rel_path = "data/primes/" + filename
+    abs_file_path = os.path.join(curr_dir, rel_path )
+    if not ( os.path.exists( abs_file_path ) and os.path.isfile( abs_file_path ) ):
+        # print( "writing", amount, "primes to", abs_file_path )
+        file = open( abs_file_path, "w+" )
+        # file.write( ','.join( map( str, genPrimes( amount ) ) ) )
+        file.write( ','.join( map( str, sievePrimes( amount ) ) ) )
+        file.close()
+
+
+def readPrimes( filename ):
+    curr_dir = os.path.dirname(__file__)
+    rel_path = "data/primes/" + filename
+    abs_file_path = os.path.join(curr_dir, rel_path )
+    if os.path.exists( abs_file_path ) and os.path.isfile( abs_file_path ):
+        # print( "reading from", abs_file_path )
+        file = open( abs_file_path )
+        lst = file.readline().strip().split(",")
+        file.close()
+        return list( map( int, lst ) )
+
+
+def checkedReadPrimes( filename, amount ):
+    savePrimes( filename, amount )  # save does nothing if file exists
+    return readPrimes( filename )
