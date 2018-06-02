@@ -3,7 +3,6 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 
 from util import *
 from itertools import permutations
-from itertools import combinations_with_replacement
 
 
 def permutableSet( primes , primeSet ):

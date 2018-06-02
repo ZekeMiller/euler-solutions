@@ -1,0 +1,43 @@
+FROM PROBLEM 45 NOTES
+
+T(n) = n(n+1)/2
+T(n) = k
+8k + 1 = 4n^2 + 4n + 1
+8k + 1 = (2n + 1 )^2
+so k is triangular iff 8k+1 is an odd perfect square
+additionally, k is the (sqrt( 8k + 1 ) - 1) / 2-th triangular number
+
+
+We can also prove that all hexagonal numbers are triangular.
+H(n) = n(2n-1) (by definition)
+= 2n(2n-1)/2
+let k = 2n-1
+= k+1(k)/2
+= k(k+1)/2  (the closed form of triangular numbers)
+thus H(n) = T(2n-1)
+
+So we only need to check for hexagonal and pentagonal, meaning the first proof is worthless, yay
+
+actually we can probably find a way to use it, since that means all the hexagonal numbers also satisfy the 8k+1 is an odd square property.  We also know that the hexagonal numbers are the odd triangular numbers, so we know a number k is hexagonal iff ((sqrt(8k+1)-1)/2) % 2 == 0
+
+
+NEW NOTES
+
+Pentagonal
+k = P(n) = n(3n-1)/2
+24k + 1 = 12n(3n-1) + 1
+24k + 1 = 36n^2 - 12n + 1
+24k + 1 = (6n-1)^2
+(sqrt(24k + 1) + 1)/6 = n
+
+
+n is Triangular iff (sqrt(8n+1)-1)/2 is an int
+n is Square iff sqrt(n) is an int
+n is Pentagonal iff (sqrt(24n+1)-1)/6 is an int
+n is Hexagonal iff ((sqrt(8n+1)-1)/2) % 2 == 1
+
+
+I actually just found a formula online for given x ( a positive integer ) and s ( to represent an s-gonal number ), to determine if x is an s-gonal, and for what n value x is the nth s-gonal number:
+
+P(s,n) = x
+n = ( sqrt( (8s - 16)x + (s - 4) ^ 2 ) + s - 4 ) / ( 2s - 4 )
