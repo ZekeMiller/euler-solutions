@@ -33,5 +33,5 @@ def primeFactors( val ):
     return maxPrime
 
 
-print( primeFactors( 13195 ) )
+# print( primeFactors( 13195 ) )
 print( primeFactors( 600851475143 ) )
