@@ -20,7 +20,7 @@ def findMaxConsecutive( upper ):
             if sumPrime in primeSet:
                 maxSpan = i2
                 maximum = sumPrime
-    return maxSpan, maximum
+    return maximum
 
 
 def main():
