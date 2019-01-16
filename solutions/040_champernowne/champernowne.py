@@ -10,7 +10,7 @@ def champernowne( goalIndices ):
         if digits > upper:
             break
         if digits + len(str(i)) >= nextGoal:
-            print( digits, i, nextGoal )
+            # print( digits, i, nextGoal )
             product *= int(str(i)[ nextGoal - digits - 1 ] )
             nextGoal = goalIndices.pop()
             if len( goalIndices ) == 0:
