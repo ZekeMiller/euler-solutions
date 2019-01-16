@@ -31,5 +31,4 @@ def lcm( vals ):
     return reduce(mul, result, 1)
 
 vals = [ i for i in range( 1, 21 ) ]
-print( vals )
 print( lcm( vals ) )
