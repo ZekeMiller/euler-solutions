@@ -41,7 +41,7 @@ def findDigitFactsComb( upper ):
 
 
 def main():
-    print( findDigitFactsNaive( 40730 ) )
+    # print( findDigitFactsNaive( 40730 ) )
     print( findDigitFactsComb( 6 ) )
 
 
