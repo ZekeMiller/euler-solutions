@@ -27,7 +27,6 @@ def lcm( vals ):
         if res ** 2 in vals:
             result.remove( res )
             result += [ res ** 2 ]
-    print( result )
     return reduce(mul, result, 1)
 
 vals = [ i for i in range( 1, 21 ) ]
