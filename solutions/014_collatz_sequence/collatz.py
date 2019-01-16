@@ -30,8 +30,8 @@ def main():
     print( val )
 
 
-print( collatzCount( 13 ) )
-print( collatzCount( 40 ) )
-print( collatzCount( 40 ) )
+# print( collatzCount( 13 ) )
+# print( collatzCount( 40 ) )
+# print( collatzCount( 40 ) )
 
 main()
