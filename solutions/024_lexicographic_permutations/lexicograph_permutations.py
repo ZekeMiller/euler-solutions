@@ -14,7 +14,7 @@ def nthPerm( lst, perm ):
     if lst is []:
         return []
     if len( lst ) == 1 or perm == 0:
-        print( "perm =", perm, lst )
+        # print( "perm =", perm, lst )
         return lst
     leng = len( lst )
     f1 = factorial( leng )
@@ -24,11 +24,11 @@ def nthPerm( lst, perm ):
         return []
     
     fact = f1 // leng
-    print( perm, fact, lst, perm // fact )
+    # print( perm, fact, lst, perm // fact )
 
     i = perm // fact
 
-    print( lst[i] )
+    # print( lst[i] )
     return [lst[i]] + nthPerm( lst[:i]+lst[i+1:], (perm) % fact)
 
 
