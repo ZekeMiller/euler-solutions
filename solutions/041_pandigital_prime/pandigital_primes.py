@@ -5,10 +5,6 @@ from util import *
 from itertools import permutations
 
 
-def isPandigital( num ):
-    return sorted( [int(i) for i in str( num )]) == [1,2,3,4,5,6,7,8,9][:len(str(num))]
-
-
 def isPrime( num ):
     if num <= 1:
         return False
@@ -26,23 +22,19 @@ def isPrime( num ):
 
 def findMax():
 
-    fib = genFib( 87654321 )
-
-    print( "generated" )
-
     for perm in reversed( list( permutations( "12345678" ) ) ):
         num = int( ''.join( perm ) )
-        if isPrime( num ): # , fib ):
+        if isPrime( num ):
             return num
 
     for perm in reversed( list( permutations( "1234567" ) ) ):
         num = int( ''.join( perm ) )
-        if isPrime( num ): # , fib ):
+        if isPrime( num ):
             return num
 
     for perm in reversed( list( permutations( "1234" ) ) ):
         num = int( ''.join( perm ) )
-        if isPrime( num ): # , fib ):
+        if isPrime( num ):
             return num
 
 
