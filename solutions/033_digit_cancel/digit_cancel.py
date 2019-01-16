@@ -36,14 +36,15 @@ def findDigitCancels():
 
 def main():
     cancelers = findDigitCancels()
-    print( cancelers )
+    # print( cancelers )
     newNum = 1
     newDen = 1
     for tup in cancelers:
         newNum *= tup[0]
         newDen *= tup[1]
-    print( newNum, newDen )
-    print( newNum / newDen )
+    # print( newNum, newDen )
+    # print( newNum / newDen )
+    print( int( newDen / newNum ) )
 
 
 main()
