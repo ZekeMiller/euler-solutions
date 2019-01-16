@@ -1,1 +1,3 @@
 data/primes/one-billion-primes.txt
+*.class
+**/out/
