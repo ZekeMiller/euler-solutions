@@ -15,7 +15,7 @@ def countAmicable( bound ):
         
         if genDivisorSum( other ) == val:
             prev += [val, other]
-            print( "Pair:", val, other )
+            # print( "Pair:", val, other )
     return sum( prev )
 
 
