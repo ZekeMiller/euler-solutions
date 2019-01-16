@@ -33,7 +33,7 @@ def periodMax( bound ):
         if p > n:
             val = i
             n = p
-    return n, val
+    return val
 
 
 def main():
