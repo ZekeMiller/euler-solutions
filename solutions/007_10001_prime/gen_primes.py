@@ -17,4 +17,4 @@ def genNPrimes( max ):
         i += 2
     return primes
 
-print( max( genNPrimes( 10001 ) ) )
+print( genNPrimes( 10001 )[-1] )
