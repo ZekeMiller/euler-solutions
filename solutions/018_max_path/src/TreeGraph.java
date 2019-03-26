@@ -78,7 +78,7 @@ public class TreeGraph {
 
     public static void main(String[] args) {
 
-        TreeGraph treeGraph = new TreeGraph( "tree.txt" );
+        TreeGraph treeGraph = new TreeGraph( args[0] );
         int max = treeGraph.findLongestPath( treeGraph.map.get(
                 new Location( 0, 0 ) ) );
         System.out.println( max );
