@@ -37,6 +37,22 @@ def primeFactors( val ):
     return facts
 
 
+def primeFactorsWithPrimes( val, primes ):
+    if val <= 3:
+        return [val]
+    facts = []
+    for prime in primes:
+        if prime > math.sqrt( val ) + 1:
+            break
+        while val % prime == 0:
+            val //= prime
+            facts += [prime]
+
+    if val != 1:
+        facts += [val]
+    return facts
+
+
 def isPrime( num ):
     if num <= 1:
         return False
