@@ -70,10 +70,8 @@ def isPrime( num ):
 
 def divisors( val ):
     
-    if val < 1:
-        return val
-    if val == 1:
-        return [1]
+    if val <= 1:
+        return [val]
     if val == 2:
         return [1,2]
     
@@ -88,7 +86,7 @@ def divisors( val ):
 
 
 
-def relPrime( vals, check ):
+def __relPrime( vals, check ):
     # print( vals, check )
     for val in vals:
         if check < val * val:
@@ -102,7 +100,7 @@ def genPrimes( max ):
     primes = [2]
     count = 2
     for i in range( 3, max, 2 ):
-        if relPrime( primes, i ):
+        if __relPrime( primes, i ):
             primes += [ i ]
             count += i
     # print( count )
@@ -127,6 +125,19 @@ def sievePrimes( upper ):
             primes += [i]
 
     return primes
+
+def totientWithPrimes( n, primes ):
+    if n <= 1:
+        return 1
+    factors = primeFactorsWithPrimes( n, primes )
+    unique_factors = []
+    for fac in factors:
+        if fac not in unique_factors:
+            unique_factors.append( fac )
+    result = n
+    for fac in unique_factors:
+        result *= 1 - ( 1 / fac )
+    return int( result )
 
 
 def savePrimes( filename, amount ):
