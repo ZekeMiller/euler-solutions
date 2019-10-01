@@ -4,8 +4,9 @@ import sys
 
 
 """
+from os.path import dirname
 import os, sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+sys.path.append(dirname(dirname(dirname(os.path.abspath(__file__)))))
 
 from util import *
 
@@ -22,6 +23,77 @@ def isPalindrome( num ):
 
 def isPerm( num1, num2 ):
     return sorted( str( num1 ) ) == sorted( str( num2 ) )
+
+
+def isSquare(n):
+    n = int(n)
+    if n < 0:
+        return False
+    if n < 2:
+        return True
+    x = n // 2
+    seen = set([x])
+    while x * x != n:
+        x = (x + (n // x)) // 2
+        if x in seen:
+            return False
+        seen.add(x)
+    return True
+
+
+# http://mathworld.wolfram.com/PythagoreanTriple.html
+from collections import deque
+
+def __transformU( trip ):
+    (a,b,c) = trip
+
+    newA = a - 2 * b + 2 * c
+    newB = 2 * a - b + 2 * c
+    newC = 2 * a - 2 * b + 3 * c
+
+    return [newA, newB, newC]
+
+def __transformA( trip ):
+    (a,b,c) = trip
+
+    newA = a + 2 * b + 2 * c
+    newB = 2 * a + b + 2 * c
+    newC = 2 * a + 2 * b + 3 * c
+
+    return [newA, newB, newC]
+
+
+def __transformD( trip ):
+    (a,b,c) = trip
+
+    newA = -a + 2 * b + 2 * c
+    newB = -2 * a + b + 2 * c
+    newC = -2 * a + 2 * b + 3 * c
+
+    return [newA, newB, newC]
+
+
+def generatePythagoreanPrimitives(upper):
+    # returns all pythagorean primitives where sum(a+b+c) < upper
+
+    # the final trips
+    trips = deque()
+    # the temporary queue
+    tripsQ = deque()
+    # initial triple
+    tripsQ.append((3,4,5))
+    # while temp queue has some
+    while len(tripsQ):
+        # pop from temp, keep in final
+        trip = tripsQ.pop()
+        tripSum = sum(trip)
+        if tripSum < upper:
+            trips.append(trip)
+            tripsQ.append(__transformU(trip))
+            tripsQ.append(__transformA(trip))
+            tripsQ.append(__transformD(trip))
+    return [sorted(trip) for trip in trips]
+
 
 
 def primeFactors( val ):
