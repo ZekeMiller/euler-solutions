@@ -1,4 +1,5 @@
 data/primes/one-billion-primes.txt
 *.class
 **/out/
+**/.idea
 __pycache__/*
