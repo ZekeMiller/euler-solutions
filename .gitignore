@@ -1,5 +1,5 @@
-data/primes/one-billion-primes.txt
+data/*
 *.class
-**/out/
-**/.idea
-__pycache__/*
+out/
+.idea/
+__pycache__/
