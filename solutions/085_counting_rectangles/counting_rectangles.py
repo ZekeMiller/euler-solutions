@@ -1,3 +1,4 @@
+import math
 
 def triangle(n):
     return int(n * (n+1) / 2)
@@ -24,12 +25,10 @@ def findDiff(length, width, n):
 
 
 def findClosestTo(n):
-    diag = 1
-    while numSubrectangles(diag, diag) < n:
-        diag += 1
-    print(diag)
-    i = diag
-    j = diag
+    start = math.floor(1/2*(math.sqrt(8*math.sqrt(n)+1)-1))
+    start2 = math.floor(1/2*(math.sqrt(8*math.sqrt(n)+1)+1))
+    i = start
+    j = start
     closest = (i,j)
     closestDiff = findDiff(i, j, n)
 
@@ -45,8 +44,8 @@ def findClosestTo(n):
         # if we get farther, move to the next column
         else:
             j += 1
-    return closest[0], closest[1], closest[0] * closest[1]
+    return closest[0] * closest[1]
 
 
-# print(findClosestTo(300))
+#print(findClosestTo(300))
 print(findClosestTo(2 * 10 ** 6))
